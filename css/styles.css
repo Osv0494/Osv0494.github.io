@@ -1,0 +1,46 @@
+:root {
+  --theme-color: #ffffff;
+  --primary-color: rgb(0, 153, 255);
+  --secundary-color: #f7c331;
+  --text-color-inverse: #ffffff;
+  --text-color: #000000;
+  --navbar-shallow-color: #e5e5e5;
+  --menu-mobile-background-color: #3a4460;
+  --text-color-secund: #f54e4e;
+  --background-color:#343a40;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth; /*para que los cambios de seccion sean mas suabes*/
+}
+
+/*section[id] {
+  scroll-margin-top: 70px; para que una ves salgan los elentos de la navbar no queden 
+  debajo de la navbar
+}*/
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+@media (min-width: 950px){
+  .grid-body1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .grid-body2{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "contact experience4" ;
+  }
+}

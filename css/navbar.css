@@ -1,0 +1,142 @@
+.logo_img {
+  width: 35px;
+  height: 35px;
+}
+
+.topheader {
+  position: fixed;
+  /*box-shadow: 0 4px 5px var(--navbar-shallow-color); barra de decoracion del navbar*/
+  background-color: transparent;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100; /*para que absolutamente todo quede por detras de la navbar*/
+}
+
+.topnav {
+  display: flex; /*para que los elemntos queden en fila*/
+  justify-content: space-between; /*para que alla un espacio en el medio de los elemntos 
+  y estos terminen en cada lago*/
+  padding: 10px;
+  max-width: 1600px; /*para definir el ancho de mi elento asi si el monitor es mas grande que mi 
+  parametro, estos elemntos quedaran asta los 980px que les di*/
+  margin: 0 auto; /*usa de referncia las manecillas del reloj*/
+}
+/*Logo*/
+.logo {
+  display: flex;
+  align-items: center; /*para que los elemntos queden centrados en el eje*/
+  font-size: 25px;
+  font-weight: 500px;
+  color: var(--text-color-secund);
+  gap: 2px;
+}
+
+/*Menu*/
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  padding: 0 15px;
+}
+.menu a {
+  color: var(--text-color-inverse);
+  font-size: 25px;
+  font-weight: 500px;
+  line-height: 50px;
+  text-transform: uppercase;
+  position: relative; /*para posicionar el after relativo al padre*/
+}
+/*seudo selector para marcar la parte del menu en  que te encuentras*/
+.menu a::after {
+  content: ""; /*siempre se debe usar content para que aparesca los elementos after*/
+  background-color: var(--secundary-color);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+}
+.menu a:hover::after {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.menu a:hover {
+  color: var(--secundary-color);
+}
+
+.imgmenu,
+.imgclose {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+.open-menu,
+.close-menu {
+  display: none;
+}
+/*para moviles*/
+@media (max-width: 950px) {
+  .logo_img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center; /*para que los elemntos queden centrados en el eje*/
+    font-size: 18px;
+    font-weight: 500px;
+    color: var(--text-color-secund);
+    gap: 2px;
+  }
+  .menu {
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    align-items: center; /*para centrar cuando el contenido esta en columnas*/
+    background-image: url("../img/fondo.jpg");
+    height: 100%;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none; /*para eliminar los elemntos del menu y evitar que aun que no se vean no esten presente tampoco*/
+    transition: opacity 0.3s;
+  }
+  .menu li {
+    padding: 0;
+  }
+  .menu a {
+    color: var(--text-color-inverse);
+    line-height: 70px;
+    font-size: 25px;
+  }
+  .open-menu,
+  .close-menu {
+    display: block;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .close-menu {
+    align-self: flex-end; /*para desaliniar el contenido que habiamos aliniado anteriormente*/
+    padding: 10px 20px 20px 20px;
+  }
+  .menu_opened {
+    /*esto ara que aparesca el menu cuando lo seleccionemos*/
+    opacity: 1;
+    pointer-events: all;
+  }
+  .menu a::after {
+    content: none;
+  }
+  .menu a:hover {
+    color: var(--secundary-color);
+  }
+}
+
