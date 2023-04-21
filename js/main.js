@@ -26,8 +26,8 @@ menuLinks.forEach((menuLink) => {
 let submitBtn = document.querySelector(".submit-btn");
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const email = document.querySelector("#email");
-  const name = document.querySelector("#name");
-  const message = document.querySelector("#message");
+  const email = document.querySelector("#email").value;
+  const name = document.querySelector("#name").value;
+  const message = document.querySelector("#message").value;
   window.location.href = `mailto:jesusperez0494@gmail.com?subject=envioDesdeFormulario&body=name%3A${name}%0Aemail%3A${email}%0Amessage%3A${message}`;
 });
